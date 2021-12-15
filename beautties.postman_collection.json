@@ -1,0 +1,2527 @@
+{
+	"info": {
+		"_postman_id": "f2eb5152-8a61-4c28-a2a8-96319235dacc",
+		"name": "beautties",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "вход в линый кабинет",
+			"item": [
+				{
+					"name": "удачный вход",
+					"item": [
+						{
+							"name": "корректные данные",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"login\": \"admin\",\r\n  \"password\": \"TQ4dUppMV2ZmLdfB\",\r\n  \"isUser\": false\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://qa.mir-dit.ru/login",
+									"protocol": "http",
+									"host": [
+										"qa",
+										"mir-dit",
+										"ru"
+									],
+									"path": [
+										"login"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "негативные прверки",
+					"item": [
+						{
+							"name": "оба поля пустыми",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"login\": \"\",\r\n  \"password\": \"\",\r\n  \"isUser\": false\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{testurl}}/usersapi/token",
+									"host": [
+										"{{testurl}}"
+									],
+									"path": [
+										"usersapi",
+										"token"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Оставить пустое поле login и  и правильный пароль",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"login\": \"\",\r\n  \"password\": \"TQ4dUppMV2ZmLdfB\",\r\n  \"isUser\": false\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{testurl}}/usersapi/token",
+									"host": [
+										"{{testurl}}"
+									],
+									"path": [
+										"usersapi",
+										"token"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Ввeсти корректный login и некорректный pass",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"login\": \"admin\",\r\n  \"password\": \"TQ4dUp\",\r\n  \"isUser\": false\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{testurl}}/usersapi/token",
+									"host": [
+										"{{testurl}}"
+									],
+									"path": [
+										"usersapi",
+										"token"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Ввeсти корректный login и оставить пустое поле password Copy",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"login\": \"admin\",\r\n  \"password\": \"\",\r\n  \"isUser\": false\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{testurl}}/usersapi/token",
+									"host": [
+										"{{testurl}}"
+									],
+									"path": [
+										"usersapi",
+										"token"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Ввeсти некорректный login, но корректный pass",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"login\": \"admfn\",\r\n  \"password\": \"TQ4dUppMV2ZmLdfB\",\r\n  \"isUser\": false\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{testurl}}/usersapi/token",
+									"host": [
+										"{{testurl}}"
+									],
+									"path": [
+										"usersapi",
+										"token"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Ввeсти некорректный login и некорректный pass",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"login\": \"admfn\",\r\n  \"password\": \"TQ4dUppMVmLdfB\",\r\n  \"isUser\": false\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{testurl}}/usersapi/token",
+									"host": [
+										"{{testurl}}"
+									],
+									"path": [
+										"usersapi",
+										"token"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "правильный логин, начинающийся с нескольких пробелов, и правильный пароль",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"login\": \" admin\",\r\n  \"password\": \"TQ4dUppMVmLdfB\",\r\n  \"isUser\": false\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{testurl}}/usersapi/token",
+									"host": [
+										"{{testurl}}"
+									],
+									"path": [
+										"usersapi",
+										"token"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "user запись",
+			"item": [
+				{
+					"name": "позитивное добавление",
+					"item": [
+						{
+							"name": "Добавление клиент салона",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{tokenid}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "X-API-Key",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"fullname\": \"Марик Твен\",\r\n  \"phone\": 9991112233,\r\n  \"gender\": \"женский\",\r\n  \"haircolor\": \"string\",\r\n  \"eyescolor\": \"string\",\r\n  \"role\": \"user\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{testurl}}/usersapi/user",
+									"host": [
+										"{{testurl}}"
+									],
+									"path": [
+										"usersapi",
+										"user"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "негативные проверки",
+					"item": [
+						{
+							"name": "fullname",
+							"item": [
+								{
+									"name": "строка с пробеломб дефисом",
+									"request": {
+										"auth": {
+											"type": "apikey",
+											"apikey": [
+												{
+													"key": "value",
+													"value": "{{tokenid}}",
+													"type": "string"
+												},
+												{
+													"key": "key",
+													"value": "X-API-Key",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"fullname\": \"Марик- Твен\",\r\n  \"phone\": 9991112233,\r\n  \"gender\": \"женский\",\r\n  \"haircolor\": \"string\",\r\n  \"eyescolor\": \"string\",\r\n  \"role\": \"user\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{testurl}}/usersapi/user",
+											"host": [
+												"{{testurl}}"
+											],
+											"path": [
+												"usersapi",
+												"user"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "проверка валидации fullname 109 сим",
+									"request": {
+										"auth": {
+											"type": "apikey",
+											"apikey": [
+												{
+													"key": "value",
+													"value": "{{tokenid}}",
+													"type": "string"
+												},
+												{
+													"key": "key",
+													"value": "X-API-Key",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"fullname\": \"Пабло Диего Хозе Франциско де Паула Хуан Непомукено Криспин Криспиано де ла Сантисима Тринидад Руиз и Пикассо\",\r\n  \"phone\": 9991112233,\r\n  \"gender\": \"женский\",\r\n  \"haircolor\": \"string\",\r\n  \"eyescolor\": \"string\",\r\n  \"role\": \"user\"\r\n  \r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{testurl}}/usersapi/user",
+											"host": [
+												"{{testurl}}"
+											],
+											"path": [
+												"usersapi",
+												"user"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "проверка валидации fullname  состоящая из английских букв",
+									"request": {
+										"auth": {
+											"type": "apikey",
+											"apikey": [
+												{
+													"key": "value",
+													"value": "{{tokenid}}",
+													"type": "string"
+												},
+												{
+													"key": "key",
+													"value": "X-API-Key",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"fullname\": \"Olivia\",\r\n  \"phone\": 9991112233,\r\n  \"gender\": \"женский\",\r\n  \"haircolor\": \"string\",\r\n  \"eyescolor\": \"string\",\r\n  \"role\": \"user\"\r\n  \r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{testurl}}/usersapi/user",
+											"host": [
+												"{{testurl}}"
+											],
+											"path": [
+												"usersapi",
+												"user"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "проверка валидации fullname  содержащая спец.символы",
+									"request": {
+										"auth": {
+											"type": "apikey",
+											"apikey": [
+												{
+													"key": "value",
+													"value": "{{tokenid}}",
+													"type": "string"
+												},
+												{
+													"key": "key",
+													"value": "X-API-Key",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"fullname\": \"@@%%\",\r\n  \"phone\": 9991112233,\r\n  \"gender\": \"женский\",\r\n  \"haircolor\": \"string\",\r\n  \"eyescolor\": \"string\",\r\n  \"role\": \"user\"\r\n  \r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{testurl}}/usersapi/user",
+											"host": [
+												"{{testurl}}"
+											],
+											"path": [
+												"usersapi",
+												"user"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "проверка валидации fullname  содержащая цифры Copy",
+									"request": {
+										"auth": {
+											"type": "apikey",
+											"apikey": [
+												{
+													"key": "value",
+													"value": "{{tokenid}}",
+													"type": "string"
+												},
+												{
+													"key": "key",
+													"value": "X-API-Key",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"fullname\": \"Olivia12\",\r\n  \"phone\": 9991112233,\r\n  \"gender\": \"женский\",\r\n  \"haircolor\": \"string\",\r\n  \"eyescolor\": \"string\",\r\n  \"role\": \"user\"\r\n  \r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{testurl}}/usersapi/user",
+											"host": [
+												"{{testurl}}"
+											],
+											"path": [
+												"usersapi",
+												"user"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "проверка валидации fullname  содержащая символы других языков",
+									"request": {
+										"auth": {
+											"type": "apikey",
+											"apikey": [
+												{
+													"key": "value",
+													"value": "{{tokenid}}",
+													"type": "string"
+												},
+												{
+													"key": "key",
+													"value": "X-API-Key",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"fullname\": \"ァ 系 路 克 瑞 大 阪 市 立 学\",\r\n  \"phone\": 9991112233,\r\n  \"gender\": \"женский\",\r\n  \"haircolor\": \"string\",\r\n  \"eyescolor\": \"string\",\r\n  \"role\": \"user\"\r\n  \r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{testurl}}/usersapi/user",
+											"host": [
+												"{{testurl}}"
+											],
+											"path": [
+												"usersapi",
+												"user"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "проверка валидации fullname  \"\"",
+									"request": {
+										"auth": {
+											"type": "apikey",
+											"apikey": [
+												{
+													"key": "value",
+													"value": "{{tokenid}}",
+													"type": "string"
+												},
+												{
+													"key": "key",
+													"value": "X-API-Key",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"fullname\": \"\",\r\n  \"phone\": 9991112233,\r\n  \"gender\": \"женский\",\r\n  \"haircolor\": \"string\",\r\n  \"eyescolor\": \"string\",\r\n  \"role\": \"user\"\r\n  \r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{testurl}}/usersapi/user",
+											"host": [
+												"{{testurl}}"
+											],
+											"path": [
+												"usersapi",
+												"user"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "phone",
+							"item": [
+								{
+									"name": "12 цифр",
+									"request": {
+										"auth": {
+											"type": "apikey",
+											"apikey": [
+												{
+													"key": "value",
+													"value": "{{tokenid}}",
+													"type": "string"
+												},
+												{
+													"key": "key",
+													"value": "X-API-Key",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"fullname\": \"Марк\",\r\n  \"phone\": 999111223223,\r\n  \"gender\": \"женский\",\r\n  \"haircolor\": \"string\",\r\n  \"eyescolor\": \"string\",\r\n  \"role\": \"user\"\r\n  \r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{testurl}}/usersapi/user",
+											"host": [
+												"{{testurl}}"
+											],
+											"path": [
+												"usersapi",
+												"user"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "пустое \"\"",
+									"request": {
+										"auth": {
+											"type": "apikey",
+											"apikey": [
+												{
+													"key": "value",
+													"value": "{{tokenid}}",
+													"type": "string"
+												},
+												{
+													"key": "key",
+													"value": "X-API-Key",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"fullname\": \"Марк\",\r\n  \"phone\": 999111223223,\r\n  \"gender\": \"женский\",\r\n  \"haircolor\": \"string\",\r\n  \"eyescolor\": \"string\",\r\n  \"role\": \"user\"\r\n  \r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{testurl}}/usersapi/user",
+											"host": [
+												"{{testurl}}"
+											],
+											"path": [
+												"usersapi",
+												"user"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "состоящая из русских букв",
+									"request": {
+										"auth": {
+											"type": "apikey",
+											"apikey": [
+												{
+													"key": "value",
+													"value": "{{tokenid}}",
+													"type": "string"
+												},
+												{
+													"key": "key",
+													"value": "X-API-Key",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"fullname\": \"Марк\",\r\n  \"phone\": два пять,\r\n  \"gender\": \"женский\",\r\n  \"haircolor\": \"string\",\r\n  \"eyescolor\": \"string\",\r\n  \"role\": \"user\"\r\n  \r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{testurl}}/usersapi/user",
+											"host": [
+												"{{testurl}}"
+											],
+											"path": [
+												"usersapi",
+												"user"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "содержащая спец.символы",
+									"request": {
+										"auth": {
+											"type": "apikey",
+											"apikey": [
+												{
+													"key": "value",
+													"value": "{{tokenid}}",
+													"type": "string"
+												},
+												{
+													"key": "key",
+													"value": "X-API-Key",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"fullname\": \"Марк\",\r\n  \"phone\": \"@$%@@@$$%%%\",\r\n  \"gender\": \"женский\",\r\n  \"haircolor\": \"string\",\r\n  \"eyescolor\": \"string\",\r\n  \"role\": \"user\"\r\n  \r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{testurl}}/usersapi/user",
+											"host": [
+												"{{testurl}}"
+											],
+											"path": [
+												"usersapi",
+												"user"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "цифры+букв",
+									"request": {
+										"auth": {
+											"type": "apikey",
+											"apikey": [
+												{
+													"key": "value",
+													"value": "{{tokenid}}",
+													"type": "string"
+												},
+												{
+													"key": "key",
+													"value": "X-API-Key",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"fullname\": \"Марк\",\r\n  \"phone\": \"916011245к\",\r\n  \"gender\": \"женский\",\r\n  \"haircolor\": \"string\",\r\n  \"eyescolor\": \"string\",\r\n  \"role\": \"user\"\r\n  \r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{testurl}}/usersapi/user",
+											"host": [
+												"{{testurl}}"
+											],
+											"path": [
+												"usersapi",
+												"user"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "gender",
+							"item": [
+								{
+									"name": "не корректное кошка",
+									"request": {
+										"auth": {
+											"type": "apikey",
+											"apikey": [
+												{
+													"key": "value",
+													"value": "{{tokenid}}",
+													"type": "string"
+												},
+												{
+													"key": "key",
+													"value": "X-API-Key",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"fullname\": \"Алина\",\r\n  \"phone\": 9991112233,\r\n  \"gender\": \"кошка\",\r\n  \"haircolor\": \"string\",\r\n  \"eyescolor\": \"string\",\r\n  \"role\": \"user\"\r\n  \r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{testurl}}/usersapi/user",
+											"host": [
+												"{{testurl}}"
+											],
+											"path": [
+												"usersapi",
+												"user"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "пустое",
+									"request": {
+										"auth": {
+											"type": "apikey",
+											"apikey": [
+												{
+													"key": "value",
+													"value": "{{tokenid}}",
+													"type": "string"
+												},
+												{
+													"key": "key",
+													"value": "X-API-Key",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"fullname\": \"Алина\",\r\n  \"phone\": 9991112233,\r\n  \"gender\": \"\",\r\n  \"haircolor\": \"string\",\r\n  \"eyescolor\": \"string\",\r\n  \"role\": \"user\"\r\n  \r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{testurl}}/usersapi/user",
+											"host": [
+												"{{testurl}}"
+											],
+											"path": [
+												"usersapi",
+												"user"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "другое",
+									"request": {
+										"auth": {
+											"type": "apikey",
+											"apikey": [
+												{
+													"key": "value",
+													"value": "{{tokenid}}",
+													"type": "string"
+												},
+												{
+													"key": "key",
+													"value": "X-API-Key",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"fullname\": \"Алина\",\r\n  \"phone\": 9991112233,\r\n  \"gender\": \"\",\r\n  \"haircolor\": \"string\",\r\n  \"eyescolor\": \"string\",\r\n  \"role\": \"user\"\r\n  \r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{testurl}}/usersapi/user",
+											"host": [
+												"{{testurl}}"
+											],
+											"path": [
+												"usersapi",
+												"user"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "haircolor\"",
+							"item": [
+								{
+									"name": "цвет валос пустое",
+									"request": {
+										"auth": {
+											"type": "apikey",
+											"apikey": [
+												{
+													"key": "value",
+													"value": "{{tokenid}}",
+													"type": "string"
+												},
+												{
+													"key": "key",
+													"value": "X-API-Key",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"fullname\": \"Алина\",\r\n  \"phone\": 9991112233,\r\n  \"gender\": \"\",\r\n  \"haircolor\": \"\",\r\n  \"eyescolor\": \"string\",\r\n  \"role\": \"user\"\r\n  \r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{testurl}}/usersapi/user",
+											"host": [
+												"{{testurl}}"
+											],
+											"path": [
+												"usersapi",
+												"user"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "eyescolor",
+							"item": [
+								{
+									"name": "цвет глаз пустое",
+									"request": {
+										"auth": {
+											"type": "apikey",
+											"apikey": [
+												{
+													"key": "value",
+													"value": "{{tokenid}}",
+													"type": "string"
+												},
+												{
+													"key": "key",
+													"value": "X-API-Key",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"fullname\": \"Алина\",\r\n  \"phone\": 9991112233,\r\n  \"gender\": \"\",\r\n  \"haircolor\": \"белый\",\r\n  \"eyescolor\": \"\",\r\n  \"role\": \"user\"\r\n  \r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{testurl}}/usersapi/user",
+											"host": [
+												"{{testurl}}"
+											],
+											"path": [
+												"usersapi",
+												"user"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "role",
+							"item": [
+								{
+									"name": "роль указать админ",
+									"request": {
+										"auth": {
+											"type": "apikey",
+											"apikey": [
+												{
+													"key": "value",
+													"value": "{{tokenid}}",
+													"type": "string"
+												},
+												{
+													"key": "key",
+													"value": "X-API-Key",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"fullname\": \"Алина\",\r\n  \"phone\": 9991112233,\r\n  \"gender\": \"\",\r\n  \"haircolor\": \"белый\",\r\n  \"eyescolor\": \"\",\r\n  \"role\": \"admin\"\r\n  \r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{testurl}}/usersapi/user",
+											"host": [
+												"{{testurl}}"
+											],
+											"path": [
+												"usersapi",
+												"user"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "роль не корректно",
+									"request": {
+										"auth": {
+											"type": "apikey",
+											"apikey": [
+												{
+													"key": "value",
+													"value": "{{tokenid}}",
+													"type": "string"
+												},
+												{
+													"key": "key",
+													"value": "X-API-Key",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"fullname\": \"Алина\",\r\n  \"phone\": 9991112233,\r\n  \"gender\": \"\",\r\n  \"haircolor\": \"белый\",\r\n  \"eyescolor\": \"\",\r\n  \"role\": \"use\"\r\n  \r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{testurl}}/usersapi/user",
+											"host": [
+												"{{testurl}}"
+											],
+											"path": [
+												"usersapi",
+												"user"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "New Folder",
+							"item": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Запись Администратор салона",
+			"item": [
+				{
+					"name": "негативные",
+					"item": [
+						{
+							"name": "login",
+							"item": [
+								{
+									"name": "логин 4 симв",
+									"request": {
+										"auth": {
+											"type": "apikey",
+											"apikey": [
+												{
+													"key": "value",
+													"value": "{{tokenid}}",
+													"type": "string"
+												},
+												{
+													"key": "key",
+													"value": "X-API-Key",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "\r\n  \"fullname\": \"Гарри Поттер\",\r\n  \"role\": \"admin\",\r\n  \"login\": \"garr\",\r\n  \"password\": \"allak\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{testurl}}/usersapi/user",
+											"host": [
+												"{{testurl}}"
+											],
+											"path": [
+												"usersapi",
+												"user"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "без логина",
+									"request": {
+										"auth": {
+											"type": "apikey",
+											"apikey": [
+												{
+													"key": "value",
+													"value": "{{tokenid}}",
+													"type": "string"
+												},
+												{
+													"key": "key",
+													"value": "X-API-Key",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "\r\n  \"fullname\": \"Гарри Поттер\",\r\n  \"role\": \"admin\",\r\n  \"login\": \"\",\r\n  \"password\": \"allak\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{testurl}}/usersapi/user",
+											"host": [
+												"{{testurl}}"
+											],
+											"path": [
+												"usersapi",
+												"user"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "логин 21 сим",
+									"request": {
+										"auth": {
+											"type": "apikey",
+											"apikey": [
+												{
+													"key": "value",
+													"value": "{{tokenid}}",
+													"type": "string"
+												},
+												{
+													"key": "key",
+													"value": "X-API-Key",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "\r\n  \"fullname\": \"Гарри Поттер\",\r\n  \"role\": \"admin\",\r\n  \"login\": \"Electroencephalography\",\r\n  \"password\": \"allak\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{testurl}}/usersapi/user",
+											"host": [
+												"{{testurl}}"
+											],
+											"path": [
+												"usersapi",
+												"user"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "логин на кириллице",
+									"request": {
+										"auth": {
+											"type": "apikey",
+											"apikey": [
+												{
+													"key": "value",
+													"value": "{{tokenid}}",
+													"type": "string"
+												},
+												{
+													"key": "key",
+													"value": "X-API-Key",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "\r\n  \"fullname\": \"Гарри Поттер\",\r\n  \"role\": \"admin\",\r\n  \"login\": \"мойлогин\",\r\n  \"password\": \"allak\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{testurl}}/usersapi/user",
+											"host": [
+												"{{testurl}}"
+											],
+											"path": [
+												"usersapi",
+												"user"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "parol",
+							"item": [
+								{
+									"name": "пустой пароль",
+									"request": {
+										"auth": {
+											"type": "apikey",
+											"apikey": [
+												{
+													"key": "value",
+													"value": "{{tokenid}}",
+													"type": "string"
+												},
+												{
+													"key": "key",
+													"value": "X-API-Key",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "\r\n  \"fullname\": \"Гарри Поттер\",\r\n  \"role\": \"admin\",\r\n  \"login\": \"garry\",\r\n  \"password\": \"\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{testurl}}/usersapi/user",
+											"host": [
+												"{{testurl}}"
+											],
+											"path": [
+												"usersapi",
+												"user"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "пароль 5 символов",
+									"request": {
+										"auth": {
+											"type": "apikey",
+											"apikey": [
+												{
+													"key": "value",
+													"value": "{{tokenid}}",
+													"type": "string"
+												},
+												{
+													"key": "key",
+													"value": "X-API-Key",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "\r\n  \"fullname\": \"Гарри Поттер\",\r\n  \"role\": \"admin\",\r\n  \"login\": \"garry\",\r\n  \"password\": \"allak\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{testurl}}/usersapi/user",
+											"host": [
+												"{{testurl}}"
+											],
+											"path": [
+												"usersapi",
+												"user"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "пароль более 10 симв",
+									"request": {
+										"auth": {
+											"type": "apikey",
+											"apikey": [
+												{
+													"key": "value",
+													"value": "{{tokenid}}",
+													"type": "string"
+												},
+												{
+													"key": "key",
+													"value": "X-API-Key",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "\r\n  \"fullname\": \"Гарри Поттер\",\r\n  \"role\": \"admin\",\r\n  \"login\": \"garry\",\r\n  \"password\": \"salonadminzx\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{testurl}}/usersapi/user",
+											"host": [
+												"{{testurl}}"
+											],
+											"path": [
+												"usersapi",
+												"user"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "\"fullname\"",
+							"item": [
+								{
+									"name": "без имени",
+									"request": {
+										"auth": {
+											"type": "apikey",
+											"apikey": [
+												{
+													"key": "value",
+													"value": "{{tokenid}}",
+													"type": "string"
+												},
+												{
+													"key": "key",
+													"value": "X-API-Key",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "\r\n  \"fullname\": \"\",\r\n  \"role\": \"admin\",\r\n  \"login\": \"garry\",\r\n  \"password\": \"allak\"\r\n  \r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{testurl}}/usersapi/user",
+											"host": [
+												"{{testurl}}"
+											],
+											"path": [
+												"usersapi",
+												"user"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "из английских букв",
+									"request": {
+										"auth": {
+											"type": "apikey",
+											"apikey": [
+												{
+													"key": "value",
+													"value": "{{tokenid}}",
+													"type": "string"
+												},
+												{
+													"key": "key",
+													"value": "X-API-Key",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "\r\n  \"fullname\": \"olovia\",\r\n  \"role\": \"admin\",\r\n  \"login\": \"garry\",\r\n  \"password\": \"allak\"\r\n  \r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{testurl}}/usersapi/user",
+											"host": [
+												"{{testurl}}"
+											],
+											"path": [
+												"usersapi",
+												"user"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "содержащая цифры",
+									"request": {
+										"auth": {
+											"type": "apikey",
+											"apikey": [
+												{
+													"key": "value",
+													"value": "{{tokenid}}",
+													"type": "string"
+												},
+												{
+													"key": "key",
+													"value": "X-API-Key",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "\r\n  \"fullname\": \"гарри12\",\r\n  \"role\": \"admin\",\r\n  \"login\": \"garry\",\r\n  \"password\": \"allak\"\r\n  \r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{testurl}}/usersapi/user",
+											"host": [
+												"{{testurl}}"
+											],
+											"path": [
+												"usersapi",
+												"user"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "содержащая спецсимволы",
+									"request": {
+										"auth": {
+											"type": "apikey",
+											"apikey": [
+												{
+													"key": "value",
+													"value": "{{tokenid}}",
+													"type": "string"
+												},
+												{
+													"key": "key",
+													"value": "X-API-Key",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "\r\n  \"fullname\": \"@@##$%\",\r\n  \"role\": \"admin\",\r\n  \"login\": \"garry\",\r\n  \"password\": \"allak\"\r\n  \r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{testurl}}/usersapi/user",
+											"host": [
+												"{{testurl}}"
+											],
+											"path": [
+												"usersapi",
+												"user"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "имя 3 символа",
+									"request": {
+										"auth": {
+											"type": "apikey",
+											"apikey": [
+												{
+													"key": "value",
+													"value": "{{tokenid}}",
+													"type": "string"
+												},
+												{
+													"key": "key",
+													"value": "X-API-Key",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "\r\n  \"fullname\": \"Гар\",\r\n  \"role\": \"admin\",\r\n  \"login\": \"garry\",\r\n  \"password\": \"allak\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{testurl}}/usersapi/user",
+											"host": [
+												"{{testurl}}"
+											],
+											"path": [
+												"usersapi",
+												"user"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "109 символов",
+									"request": {
+										"auth": {
+											"type": "apikey",
+											"apikey": [
+												{
+													"key": "value",
+													"value": "{{tokenid}}",
+													"type": "string"
+												},
+												{
+													"key": "key",
+													"value": "X-API-Key",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "\r\n  \"fullname\": \"Пабло Диего Хозе Франциско де Паула Хуан Непомукено Криспин Криспиано де ла Сантисима Тринидад Руиз и Пикассо\",\r\n  \"role\": \"admin\",\r\n  \"login\": \"garry\",\r\n  \"password\": \"allak\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{testurl}}/usersapi/user",
+											"host": [
+												"{{testurl}}"
+											],
+											"path": [
+												"usersapi",
+												"user"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "позитивные",
+					"item": [
+						{
+							"name": "админ создан",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{tokenid}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "X-API-Key",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "\r\n  \"fullname\": \"Гарри Поттер\",\r\n  \"role\": \"admin\",\r\n  \"login\": \"garry\",\r\n  \"password\": \"allak\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{testurl}}/usersapi/user",
+									"host": [
+										"{{testurl}}"
+									],
+									"path": [
+										"usersapi",
+										"user"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "запись специалист",
+			"item": [
+				{
+					"name": "позитивн спец",
+					"item": [
+						{
+							"name": "создать",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \r\n    \"fullname\": \"Маша волкова\",\r\n    \"role\": \"specialist\",\r\n    \"starts\": \"11:30:00\",\r\n    \"ends\": \"17:00:00\",\r\n    \"speciality\": \"мастер маникюра и педикюра\",\r\n    \"workspace\": \"1\",\r\n    \"step\": \"2\",\r\n    \"daysofweek\": [\r\n      2,\r\n      3,\r\n      4\r\n ]\r\n }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{testurl}}/usersapi/user",
+									"host": [
+										"{{testurl}}"
+									],
+									"path": [
+										"usersapi",
+										"user"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "негативные",
+					"item": [
+						{
+							"name": "fullname на латинице",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{tokenid}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "X-API-Key",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \r\n    \"fullname\": \"Mari\",\r\n    \"role\": \"specialist\",\r\n    \"starts\": \"11:30:00\",\r\n    \"ends\": \"17:00:00\",\r\n    \"speciality\": \"мастер маникюра и педикюра\",\r\n    \"workspace\": \"2\",\r\n    \"step\": \"2\",\r\n    \"daysofweek\": [\r\n      2,\r\n      3,\r\n      4\r\n ]\r\n }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{testurl}}/usersapi/user",
+									"host": [
+										"{{testurl}}"
+									],
+									"path": [
+										"usersapi",
+										"user"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "\"step\" дробные числа",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{tokenid}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "X-API-Key",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \r\n    \"fullname\": \"Маша волкова\",\r\n    \"role\": \"specialist\",\r\n    \"starts\": \"11:30:00\",\r\n    \"ends\": \"17:00:00\",\r\n    \"speciality\": \"мастер маникюра и педикюра\",\r\n    \"workspace\": \"1\",\r\n    \"step\": \"2.2\",\r\n    \"daysofweek\": [\r\n      2,\r\n      3,\r\n      4\r\n ]\r\n }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{testurl}}/usersapi/user",
+									"host": [
+										"{{testurl}}"
+									],
+									"path": [
+										"usersapi",
+										"user"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "daysofweek оставить пустым",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{tokenid}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "X-API-Key",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \r\n    \"fullname\": \"Маша волкова\",\r\n    \"role\": \"specialist\",\r\n    \"starts\": \"11:30:00\",\r\n    \"ends\": \"17:00:00\",\r\n    \"speciality\": \"мастер маникюра и педикюра\",\r\n    \"workspace\": \"1\",\r\n    \"step\": \"2\",\r\n    \"daysofweek\": [\r\n      \r\n ]\r\n }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{testurl}}/usersapi/user",
+									"host": [
+										"{{testurl}}"
+									],
+									"path": [
+										"usersapi",
+										"user"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "starts не верный формат",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{tokenid}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "X-API-Key",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \r\n    \"fullname\": \"Маша волкова\",\r\n    \"role\": \"specialist\",\r\n    \"starts\": \"113000\",\r\n    \"ends\": \"17:00:00\",\r\n    \"speciality\": \"мастер маникюра и педикюра\",\r\n    \"workspace\": \"1\",\r\n    \"step\": \"2\",\r\n    \"daysofweek\": [\r\n      2,\r\n      3,\r\n      4\r\n ]\r\n }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{testurl}}/usersapi/user",
+									"host": [
+										"{{testurl}}"
+									],
+									"path": [
+										"usersapi",
+										"user"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "\"step\" отрицательные числа",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{tokenid}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "X-API-Key",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \r\n    \"fullname\": \"Маша волкова\",\r\n    \"role\": \"specialist\",\r\n    \"starts\": \"11:30:00\",\r\n    \"ends\": \"17:00:00\",\r\n    \"speciality\": \"мастер маникюра и педикюра\",\r\n    \"workspace\": \"1\",\r\n    \"step\": \"-2\",\r\n    \"daysofweek\": [\r\n      2,\r\n      3,\r\n      4\r\n ]\r\n }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{testurl}}/usersapi/user",
+									"host": [
+										"{{testurl}}"
+									],
+									"path": [
+										"usersapi",
+										"user"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "\"step\" 182",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \r\n    \"fullname\": \"Маша волкова\",\r\n    \"role\": \"specialist\",\r\n    \"starts\": \"11:30:00\",\r\n    \"ends\": \"17:00:00\",\r\n    \"speciality\": \"мастер маникюра и педикюра\",\r\n    \"workspace\": \"1\",\r\n    \"step\": \"182\",\r\n    \"daysofweek\": [\r\n      2,\r\n      3,\r\n      4\r\n ]\r\n }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{testurl}}/usersapi/user",
+									"host": [
+										"{{testurl}}"
+									],
+									"path": [
+										"usersapi",
+										"user"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "\"step\" пустое",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \r\n    \"fullname\": \"Маша волкова\",\r\n    \"role\": \"specialist\",\r\n    \"starts\": \"11:30:00\",\r\n    \"ends\": \"17:00:00\",\r\n    \"speciality\": \"мастер маникюра и педикюра\",\r\n    \"workspace\": \"1\",\r\n    \"step\": \"\",\r\n    \"daysofweek\": [\r\n      2,\r\n      3,\r\n      4\r\n ]\r\n }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{testurl}}/usersapi/user",
+									"host": [
+										"{{testurl}}"
+									],
+									"path": [
+										"usersapi",
+										"user"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "\"fullname более 100 симв",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \r\n    \"fullname\": \"Пабло Диего Хозе Франциско де Паула Хуан Непомукено Криспин Криспиано де ла Сантисима Тринидад Руиз и Пикассо\",\r\n    \"role\": \"specialist\",\r\n    \"starts\": \"11:30:00\",\r\n    \"ends\": \"17:00:00\",\r\n    \"speciality\": \"мастер маникюра и педикюра\",\r\n    \"workspace\": \"Москва\",\r\n    \"step\": \"2\",\r\n    \"daysofweek\": [\r\n      2,\r\n      3,\r\n      4\r\n ]\r\n }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{testurl}}/usersapi/user",
+									"host": [
+										"{{testurl}}"
+									],
+									"path": [
+										"usersapi",
+										"user"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "\"workspace\" более 10 цифр",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \r\n    \"fullname\": \"Маша волкова\",\r\n    \"role\": \"specialist\",\r\n    \"starts\": \"11:30:00\",\r\n    \"ends\": \"17:00:00\",\r\n    \"speciality\": \"мастер маникюра и педикюра\",\r\n    \"workspace\": \"12345678912\",\r\n    \"step\": \"2\",\r\n    \"daysofweek\": [\r\n      2,\r\n      3,\r\n      4\r\n ]\r\n }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{testurl}}/usersapi/user",
+									"host": [
+										"{{testurl}}"
+									],
+									"path": [
+										"usersapi",
+										"user"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "\"workspace\" не числовое значение",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \r\n    \"fullname\": \"Маша волкова\",\r\n    \"role\": \"specialist\",\r\n    \"starts\": \"11:30:00\",\r\n    \"ends\": \"17:00:00\",\r\n    \"speciality\": \"мастер маникюра и педикюра\",\r\n    \"workspace\": \"dom\",\r\n    \"step\": \"2\",\r\n    \"daysofweek\": [\r\n      2,\r\n      3,\r\n      4\r\n ]\r\n }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{testurl}}/usersapi/user",
+									"host": [
+										"{{testurl}}"
+									],
+									"path": [
+										"usersapi",
+										"user"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "\"workspace\" со значение 0",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \r\n    \"fullname\": \"Маша волкова\",\r\n    \"role\": \"specialist\",\r\n    \"starts\": \"11:30:00\",\r\n    \"ends\": \"17:00:00\",\r\n    \"speciality\": \"мастер маникюра и педикюра\",\r\n    \"workspace\": \"1\",\r\n    \"step\": \"2\",\r\n    \"daysofweek\": [\r\n      2,\r\n      3,\r\n      4\r\n ]\r\n }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{testurl}}/usersapi/user",
+									"host": [
+										"{{testurl}}"
+									],
+									"path": [
+										"usersapi",
+										"user"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "speciality оставить пустым",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \r\n    \"fullname\": \"Маша волкова\",\r\n    \"role\": \"specialist\",\r\n    \"starts\": \"11:30:00\",\r\n    \"ends\": \"17:00:00\",\r\n    \"speciality\": \"\",\r\n    \"workspace\": \"1\",\r\n    \"step\": \"2\",\r\n    \"daysofweek\": [\r\n      2,\r\n      3,\r\n      4\r\n ]\r\n }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{testurl}}/usersapi/user",
+									"host": [
+										"{{testurl}}"
+									],
+									"path": [
+										"usersapi",
+										"user"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "fullname цифры",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{tokenid}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "X-API-Key",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \r\n    \"fullname\": \"Гарри Поттер12\",\r\n    \"role\": \"specialist\",\r\n    \"starts\": \"11:30:00\",\r\n    \"ends\": \"17:00:00\",\r\n    \"speciality\": \"мастер маникюра и педикюра\",\r\n    \"workspace\": \"Москва\",\r\n    \"step\": \"2\",\r\n    \"daysofweek\": [\r\n      2,\r\n      3,\r\n      4\r\n ]\r\n }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{testurl}}/usersapi/user",
+									"host": [
+										"{{testurl}}"
+									],
+									"path": [
+										"usersapi",
+										"user"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "\"fullname пустое",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{tokenid}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "X-API-Key",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \r\n    \"fullname\": \"\",\r\n    \"role\": \"specialist\",\r\n    \"starts\": \"11:30:00\",\r\n    \"ends\": \"17:00:00\",\r\n    \"speciality\": \"мастер маникюра и педикюра\",\r\n    \"workspace\": \"2\",\r\n    \"step\": \"2\",\r\n    \"daysofweek\": [\r\n      2,\r\n      3,\r\n      4\r\n ]\r\n }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{testurl}}/usersapi/user",
+									"host": [
+										"{{testurl}}"
+									],
+									"path": [
+										"usersapi",
+										"user"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "\"fullname 2 символа",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{tokenid}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "X-API-Key",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \r\n    \"fullname\": \"Ян\",\r\n    \"role\": \"specialist\",\r\n    \"starts\": \"11:30:00\",\r\n    \"ends\": \"17:00:00\",\r\n    \"speciality\": \"мастер маникюра и педикюра\",\r\n    \"workspace\": \"Москва\",\r\n    \"step\": \"2\",\r\n    \"daysofweek\": [\r\n      2,\r\n      3,\r\n      4\r\n ]\r\n }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{testurl}}/usersapi/user",
+									"host": [
+										"{{testurl}}"
+									],
+									"path": [
+										"usersapi",
+										"user"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "speciality несуществующего",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{tokenid}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "X-API-Key",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \r\n    \"fullname\": \"Маша волкова\",\r\n    \"role\": \"specialist\",\r\n    \"starts\": \"11:30:00\",\r\n    \"ends\": \"17:00:00\",\r\n    \"speciality\": \"грумер\",\r\n    \"workspace\": \"1\",\r\n    \"step\": \"2\",\r\n    \"daysofweek\": [\r\n      2,\r\n      3,\r\n      4\r\n ]\r\n }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{testurl}}/usersapi/user",
+									"host": [
+										"{{testurl}}"
+									],
+									"path": [
+										"usersapi",
+										"user"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "получение данных о пользователе",
+			"item": [
+				{
+					"name": "клиент",
+					"item": [
+						{
+							"name": "добавление админы",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{tokenid}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "X-API-Key",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{testurl}}/usersapi/users?role=admin",
+									"host": [
+										"{{testurl}}"
+									],
+									"path": [
+										"usersapi",
+										"users"
+									],
+									"query": [
+										{
+											"key": "role",
+											"value": "admin"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "добавленные специалисты",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{tokenid}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "X-API-Key",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{testurl}}/usersapi/users?role=specialist",
+									"host": [
+										"{{testurl}}"
+									],
+									"path": [
+										"usersapi",
+										"users"
+									],
+									"query": [
+										{
+											"key": "role",
+											"value": "specialist"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "добавленные клиенты",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{tokenid}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "X-API-Key",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{testurl}}/usersapi/users?role=user",
+									"host": [
+										"{{testurl}}"
+									],
+									"path": [
+										"usersapi",
+										"users"
+									],
+									"query": [
+										{
+											"key": "role",
+											"value": "user"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "админ",
+					"item": []
+				},
+				{
+					"name": "специалист",
+					"item": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "login",
+			"value": "admin"
+		},
+		{
+			"key": "password",
+			"value": "TQ4dUppMV2ZmLdfB"
+		},
+		{
+			"key": "testurl",
+			"value": " http://qa.mir-dit.ru"
+		}
+	]
+}

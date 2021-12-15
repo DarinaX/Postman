@@ -1,0 +1,788 @@
+{
+	"info": {
+		"_postman_id": "0a7841ad-3573-4279-998d-11f55dbbaca0",
+		"name": "SalonB",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "получение токина",
+			"item": [
+				{
+					"name": "Оставить пустое поле login и  и правильный пароль",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);\r",
+									"postman.setEnvironmentVariable(\"tokenid\", jsonData.token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"login\": \"salonadmin\",\r\n  \"password\": \"tester\",\r\n  \"isUser\": false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{testurl}}/usersapi/token",
+							"host": [
+								"{{testurl}}"
+							],
+							"path": [
+								"usersapi",
+								"token"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "/usersapi/users",
+			"item": [
+				{
+					"name": "Получение данных пользователя с ролью специалист",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{tokenid}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "X-API-Key",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{testurl}}/usersapi/users?role=specialist",
+							"host": [
+								"{{testurl}}"
+							],
+							"path": [
+								"usersapi",
+								"users"
+							],
+							"query": [
+								{
+									"key": "role",
+									"value": "specialist"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Получение пользователя с ролью клиент",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{tokenid}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "X-API-Key",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{testurl}}/usersapi/users?role={{usertape}}",
+							"host": [
+								"{{testurl}}"
+							],
+							"path": [
+								"usersapi",
+								"users"
+							],
+							"query": [
+								{
+									"key": "role",
+									"value": "{{usertape}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Добавление пользователя с ролью клиент",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{tokenid}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "X-API-Key",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"fullname\": \"Марк Твен\",\r\n  \"phone\": 9991112233,\r\n  \"gender\": \"женский\",\r\n  \"haircolor\": \"string\",\r\n  \"eyescolor\": \"string\",\r\n  \"role\": \"user\",\r\n  \"email\": \"darina28@gmail.com\",\r\n  \"password\": \"allakocc\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{testurl}}/usersapi/user",
+							"host": [
+								"{{testurl}}"
+							],
+							"path": [
+								"usersapi",
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "создание специалиста",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{tokenid}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "X-API-Key",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n {\r\n    \r\n    \"fullname\": \"Маша волкова\",\r\n    \"role\": \"specialist\",\r\n    \"starts\": \"11:30:00\",\r\n    \"ends\": \"17:00:00\",\r\n    \"speciality\": \"мастер маникюра и педикюра\",\r\n    \"workspace\": \"Москва\",\r\n    \"step\": \"2\",\r\n    \"daysofweek\": [\r\n      2,\r\n      3,\r\n      4\r\n ]\r\n }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{testurl}}/usersapi/user",
+							"host": [
+								"{{testurl}}"
+							],
+							"path": [
+								"usersapi",
+								"user"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "patch",
+			"item": [
+				{
+					"name": "позитив",
+					"item": [
+						{
+							"name": "Изменение ползователя",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{tokenid}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "X-API-Key",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"fullname\": \"Марк Тимченко\",\r\n  \"role\": \"user\",\r\n  \"ends\": \"\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{testurl}}/usersapi/user/364",
+									"host": [
+										"{{testurl}}"
+									],
+									"path": [
+										"usersapi",
+										"user",
+										"364"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "негативн",
+					"item": [
+						{
+							"name": "изменение без имени",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{tokenid}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "X-API-Key",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"fullname\": \"\",\r\n  \"role\": \"user\",\r\n  \"ends\": \"\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{testurl}}/usersapi/user/364",
+									"host": [
+										"{{testurl}}"
+									],
+									"path": [
+										"usersapi",
+										"user",
+										"364"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Измененние пустое ends",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{tokenid}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "X-API-Key",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"fullname\": \"\",\r\n  \"role\": \"user\",\r\n  \"ends\": \"\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{testurl}}/usersapi/user/364",
+									"host": [
+										"{{testurl}}"
+									],
+									"path": [
+										"usersapi",
+										"user",
+										"364"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "ends без запятых",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{tokenid}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "X-API-Key",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"fullname\": \"\",\r\n  \"role\": \"user\",\r\n  \"ends\": \"233000\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{testurl}}/usersapi/user/364",
+									"host": [
+										"{{testurl}}"
+									],
+									"path": [
+										"usersapi",
+										"user",
+										"364"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "ends другой формат",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{tokenid}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "X-API-Key",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"fullname\": \"\",\r\n  \"role\": \"user\",\r\n  \"ends\": \"23/30/00\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{testurl}}/usersapi/user/364",
+									"host": [
+										"{{testurl}}"
+									],
+									"path": [
+										"usersapi",
+										"user",
+										"364"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Изменение пользователя с ролью админ",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{tokenid}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "X-API-Key",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"fullname\": \"Рон Уизли\",\r\n  \"role\": \"admin\",\r\n  \"ends\": \"23:30:00\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{testurl}}/usersapi/user/364",
+									"host": [
+										"{{testurl}}"
+									],
+									"path": [
+										"usersapi",
+										"user",
+										"364"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "имя латинскими буквами",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{tokenid}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "X-API-Key",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"fullname\": \"alla b\",\r\n  \"role\": \"user\",\r\n  \"ends\": \"23:30:00\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{testurl}}/usersapi/user/364",
+									"host": [
+										"{{testurl}}"
+									],
+									"path": [
+										"usersapi",
+										"user",
+										"364"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Некорректный use",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{tokenid}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "X-API-Key",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"fullname\": \"Гарри\",\r\n  \"role\": \"use\",\r\n  \"ends\": \"23:30:00\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{testurl}}/usersapi/user/301",
+									"host": [
+										"{{testurl}}"
+									],
+									"path": [
+										"usersapi",
+										"user",
+										"301"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "удаление пользователя",
+			"item": [
+				{
+					"name": "позделит",
+					"item": [
+						{
+							"name": "удаление специалиста",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{tokenid}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "X-API-Key",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{testurl}}/usersapi/user/340",
+									"host": [
+										"{{testurl}}"
+									],
+									"path": [
+										"usersapi",
+										"user",
+										"340"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "негативделет",
+					"item": [
+						{
+							"name": "удалениес несуществующим",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{tokenid}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "X-API-Key",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{testurl}}/usersapi/user/3122",
+									"host": [
+										"{{testurl}}"
+									],
+									"path": [
+										"usersapi",
+										"user",
+										"3122"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "не корректный id",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{tokenid}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "X-API-Key",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{testurl}}/usersapi/user/фыв",
+									"host": [
+										"{{testurl}}"
+									],
+									"path": [
+										"usersapi",
+										"user",
+										"фыв"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "id не указывать",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{tokenid}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "X-API-Key",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{testurl}}/usersapi/user/",
+									"host": [
+										"{{testurl}}"
+									],
+									"path": [
+										"usersapi",
+										"user",
+										""
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "testurl",
+			"value": "http://qa.mir-dit.ru"
+		},
+		{
+			"key": "parol",
+			"value": "salondmin"
+		},
+		{
+			"key": "password",
+			"value": "tester"
+		}
+	]
+}
